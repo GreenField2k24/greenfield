@@ -39,7 +39,7 @@ db.Order = require('./order.model') (sequelize ,DataTypes)
 db.Category = require('./category.model') (sequelize ,DataTypes)
 db.orderItem = require('./orderItem.model') (sequelize ,DataTypes)
 
-// sequelize.sync({force:true})
+sequelize.sync({force:true})
 
 db.User.hasMany(db.Product, {
   foreignKey: "seller_id", // Foreign key in Product model
