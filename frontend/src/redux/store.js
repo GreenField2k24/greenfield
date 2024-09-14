@@ -1,11 +1,18 @@
-// store.js
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './action'; // Ensure this path is correct
+import { createStore, combineReducers
+  //, applyMiddleware 
+} from 'redux';
+//import { composeWithDevTools } from 'redux-devtools-extension';
+import { productReducer } from './Reducer/productReducer';
+//import { thunk } from 'redux-thunk';
 
-const store = configureStore({
-  reducer: {
-    
-  },
+const rootReducer = combineReducers({
+  productList: productReducer,
 });
 
+const store = createStore(
+  rootReducer,
+ // composeWithDevTools(applyMiddleware(thunk))
+);
+
 export default store;
+
